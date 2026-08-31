@@ -92,17 +92,18 @@ Sensitivity settings are highly hardware-dependent and can be different for each
 
 We **highly recommend** using a joystick or flight stick when flying any aircraft in a simulator. Keyboard or controller buttons simply do not have the range and sensitivity required for successfully controlling an aircraft.
 
-For the flight stick pitch control (up/backward and down/forward) we recommend using a sensitivity setting of `- 30 %` to better simulate the increased force you need to **push or pull** the real sidestick in the aircraft. Please see the screenshot below for an example:
+For the flight stick pitch control (up/backward and down/forward) we recommend using a sensitivity setting of `- 30 %` for pitch to better simulate the increased force you need to **push or pull** the real sidestick in the aircraft.<br>
+For roll a linear sensitivity is recommended.
 
-![Custom AP Sensitivity](../a32nx/assets/feature-guides/sensitivity-custom-ap.png "Custom AP Sensitivity"){loading=lazy width=30%}
+Please see the screenshot below for an example:
 
-For roll (left or right) use what you think is best for you. The above-mentioned - 30 % is a good starting point.
+![Custom AP Sensitivity](../a32nx/assets/feature-guides/sensitivity-custom-ap.png "Custom AP Sensitivity"){loading=lazy width=60%}
 
 #### Rudder/Tiller
 
 For the rudder, which by default also controls the nosewheel in MSFS, we recommend a bit of sensitivity, although linear should also work fine.
 
-On the Development version, if you have an extra axis on your controllers (e.g., twisting joystick while rudder is on pedals) you can separate the nosewheel steering via tiller from the rudder inputs. See [Nosewheel Tiller Separation](../a32nx/feature-guides/nw-tiller.md).
+If you have an extra axis on your controllers (e.g., twisting joystick while rudder is on pedals) you can separate the nosewheel steering via tiller from the rudder inputs. See [Nosewheel Tiller Separation](../a32nx/feature-guides/nw-tiller.md).
 
 ??? tip "Racing Pedals Compatibility"
     The following configuration can be used with the A32NX if you use racing pedals. *Please note* that this may not work for all variations of racing pedals, but can serve as a starting point for your settings.

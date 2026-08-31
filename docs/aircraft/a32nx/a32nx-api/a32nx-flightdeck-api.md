@@ -1,5 +1,5 @@
 ---
-title: FlyByWire A32NX API - A32NX Flight Deck API
+title: A32NX Flight Deck API
 description: Documentation for the FlyByWire A32NX FlightDeck API.
 hide:
     - navigation
@@ -38,9 +38,8 @@ Flight Deck:  [ELEC Panel](../../../pilots-corner/a32nx/a32nx-briefing/flight-de
 | BAT 1 Display | A32NX_ELEC_BAT_1_POTENTIAL                | 0.0..99.9 | R          | Custom LVAR      |                                            |
 | BAT 2 Display | A32NX_ELEC_BAT_2_POTENTIAL                | 0.0..99.9 | R          | Custom LVAR      |                                            |
 |               |                                           |           |            |                  |                                            |
-| EXT PWR       | TOGGLE_EXTERNAL_POWER                     | -         | -          | MSFS EVENT       |                                            |
-|               | EXTERNAL POWER AVAILABLE                  | 0&#124;1  | R          | MSFS VAR         |                                            |
-|               | EXTERNAL POWER ON                         | 0&#124;1  | R          | MSFS VAR         |                                            |
+| EXT PWR       | A32NX_OVHD_ELEC_EXT_PWR_PB_IS_ON          | 0..1      | R/W        | Custom LVAR      |                                            |
+|               | A32NX_EXT_PWR_AVAIL:1                     | 0&#124;1  | R          | Custom LVAR      |                                            |
 |               |                                           |           |            |                  |                                            |
 | GEN 1         | TOGGLE_ALTERNATOR:1                       | -         | -          | SIMCONNECT EVENT |                                            |
 |               | GENERAL ENG MASTER ALTERNATOR:1           | 0&#124;1  | R/W        | SIMCONNECT VAR   |                                            |
@@ -152,7 +151,6 @@ Flight Deck:  [EXT LT Panel](../../../pilots-corner/a32nx/a32nx-briefing/flight-
         - Set `CIRCUIT SWITCH ON:22` to 1 (turns on right light)
 
     !!! warning "Doing it this way might break any third-party software trying to read the status of the lights through SIMCONNECT."
-
 
 ### Interior Lights Panel
 
@@ -444,8 +442,8 @@ Flight Deck: [EFIS Control Panel](../../../pilots-corner/a32nx/a32nx-briefing/fl
 |              | A32NX.FCU_EFIS_R_BARO_INC                | -                 | -          | Custom EVENT     |                                                               |
 |              | A32NX.FCU_EFIS_L_BARO_DEC                | -                 | -          | Custom EVENT     |                                                               |
 |              | A32NX.FCU_EFIS_R_BARO_DEC                | -                 | -          | Custom EVENT     |                                                               |
-|              | A32NX.FCU_EFIS_L_BARO_SET                | -                 | -          | Custom EVENT     |                                                               |
-|              | A32NX.FCU_EFIS_R_BARO_SET                | -                 | -          | Custom EVENT     |                                                               |
+|              | A32NX.FCU_EFIS_L_BARO_SET                | -                 | -          | Custom EVENT     | in hPa * 16                                                   |
+|              | A32NX.FCU_EFIS_R_BARO_SET                | -                 | -          | Custom EVENT     | in hPa * 16                                                   |
 |              | A32NX.FCU_EFIS_L_BARO_PUSH               | -                 | -          | Custom EVENT     |                                                               |
 |              | A32NX.FCU_EFIS_R_BARO_PUSH               | -                 | -          | Custom EVENT     |                                                               |
 |              | A32NX.FCU_EFIS_L_BARO_PULL               | -                 | -          | Custom EVENT     |                                                               |
@@ -560,8 +558,8 @@ Flight Deck: [FCU Panel](../../../pilots-corner/a32nx/a32nx-briefing/flight-deck
 | ALT knob          | AUTOPILOT ALTITUDE LOCK VAR:3          | 100..49000            |            | MSFS VAR         | Deprecated                                                               |
 |                   | A32NX_FCU_AFS_DISPLAY_ALT_VALUE        | 100..49000            |            | Custom LVAR      |                                                                          |
 |                   | A32NX_FCU_AFS_DISPLAY_LVL_CH_MANAGED   | 0&#124;1              |            | Custom LVAR      |                                                                          |
-|                   | A32NX.FCU_ALT_INC                      | 0&#124;100&#124;1000  | R          | Custom EVENT     | 0=Use FCU Setting, 100=100, 1000=1000                                    |
-|                   | A32NX.FCU_ALT_DEC                      | 0&#124;100&#124;1000  | R          | Custom EVENT     | 0=Use FCU Setting, 100=100, 1000=1000                                    |
+|                   | A32NX.FCU_ALT_INC                      | -                     | R          | Custom EVENT     |                                                                          |
+|                   | A32NX.FCU_ALT_DEC                      | -                     | R          | Custom EVENT     |                                                                          |
 |                   | A32NX.FCU_ALT_SET                      | 100..49000            | -          | Custom EVENT     |                                                                          |
 |                   | A32NX.FCU_ALT_PUSH                     | -                     | -          | Custom EVENT     |                                                                          |
 |                   | A32NX.FCU_ALT_PULL                     | -                     | -          | Custom EVENT     |                                                                          |
@@ -687,33 +685,33 @@ Flight Deck: [ILCP Panel](../../../pilots-corner/a32nx/a32nx-briefing/flight-dec
 
 Flight Deck: [Autobrake and Gear Panel](../../../pilots-corner/a32nx/a32nx-briefing/flight-deck/front/autobrake-gear.md)
 
-| Function              | API Usage                       | Values   | Read/Write | Type             | Remark                             |
-|:----------------------|:--------------------------------|:---------|:-----------|:-----------------|:-----------------------------------|
-| Gear lever            | GEAR_UP                         | -        | -          | SIMCONNECT EVENT |                                    |
-|                       | GEAR_DOWN                       | -        | -          | SIMCONNECT EVENT |                                    |
-|                       | GEAR HANDLE POSITION            | 0&#124;1 | R/W        | SIMCONNECT VAR   |                                    |
-|                       |                                 |          |            |                  |                                    |
-| LDG GEAR Annunciators | GEAR LEFT POSITION              | 0..100   | R          | SIMCONNECT VAR   |                                    |
-|                       | GEAR CENTER POSITION            | 0..100   | R          | SIMCONNECT VAR   |                                    |
-|                       | GEAR RIGHT POSITION             | 0..100   | R          | SIMCONNECT VAR   |                                    |
-|                       |                                 |          |            |                  |                                    |
-| AUTO BRK LO/MED/MAX   | A32NX_AUTOBRAKES_ARMED_MODE     | 0..3     | R          | Custom LVAR      | 0=DIS, 1=LO, 2=MED, 3=MAX          |
-|                       | A32NX_AUTOBRAKES_ARMED_MODE_SET | -1..3    | W          | Custom LVAR      | -1=techn. 0=DIS, 1=LO,2=MED, 3=MAX |
-|                       | A32NX_AUTOBRAKES_ACTIVE         | 0&#124;1 | R          | Custom LVAR      | 0=not braking, 1=braking           |
-|                       | A32NX_AUTOBRAKES_DECEL_LIGHT    | 0&#124;1 | R          | Custom LVAR      | 0=off, 1=on                        |
-|                       | A32NX.AUTOBRAKE_SET             | 1..4     |            | Custom EVENT     | 1=DIS, 2=LO, 3=MED, 4=MAX          |
-|                       | A32NX.AUTOBRAKE_SET_DISARM      | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_SET_LO          | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_SET_MED         | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_SET_MAX         | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_BUTTON_LO       | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_BUTTON_MED      | -        | -          | Custom EVENT     |                                    |
-|                       | A32NX.AUTOBRAKE_BUTTON_MAX      | -        | -          | Custom EVENT     |                                    |
-|                       |                                 |          |            |                  |                                    |
-| BRK FAN               | A32NX_BRAKE_FAN_BTN_PRESSED     | 0&#124;1 | R/W        | Custom LVAR      |                                    |
-|                       |                                 |          |            |                  |                                    |
-| A/SKID & N/W STRG     | ANTISKID_BRAKES_TOGGLE          | -        | -          | SIMCONNECT EVENT |                                    |
-|                       | ANTISKID BRAKES ACTIVE          | 0&#124;1 | R/W        | SIMCONNECT VAR   |                                    |
+| Function              | API Usage                       | Values   | Read/Write | Type             | Remark                    |
+|:----------------------|:--------------------------------|:---------|:-----------|:-----------------|:--------------------------|
+| Gear lever            | GEAR_UP                         | -        | -          | SIMCONNECT EVENT |                           |
+|                       | GEAR_DOWN                       | -        | -          | SIMCONNECT EVENT |                           |
+|                       | GEAR HANDLE POSITION            | 0&#124;1 | R/W        | SIMCONNECT VAR   |                           |
+|                       |                                 |          |            |                  |                           |
+| LDG GEAR Annunciators | GEAR LEFT POSITION              | 0..100   | R          | SIMCONNECT VAR   |                           |
+|                       | GEAR CENTER POSITION            | 0..100   | R          | SIMCONNECT VAR   |                           |
+|                       | GEAR RIGHT POSITION             | 0..100   | R          | SIMCONNECT VAR   |                           |
+|                       |                                 |          |            |                  |                           |
+| AUTO BRK LO/MED/MAX   | A32NX_AUTOBRAKES_ARMED_MODE     | 0..3     | R          | Custom LVAR      | 0=DIS, 1=LO, 2=MED, 3=MAX |
+|                       | A32NX_AUTOBRAKES_ARMED_MODE_SET | 0..3     | W          | Custom LVAR      | 0=DIS, 1=LO,2=MED, 3=MAX  |
+|                       | A32NX_AUTOBRAKES_ACTIVE         | 0&#124;1 | R          | Custom LVAR      | 0=not braking, 1=braking  |
+|                       | A32NX_AUTOBRAKES_DECEL_LIGHT    | 0&#124;1 | R          | Custom LVAR      | 0=off, 1=on               |
+|                       | A32NX.AUTOBRAKE_SET             | 0..3     |            | Custom EVENT     | 0=DIS, 1=LO, 2=MED, 3=MAX |
+|                       | A32NX.AUTOBRAKE_SET_DISARM      | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_SET_LO          | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_SET_MED         | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_SET_MAX         | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_BUTTON_LO       | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_BUTTON_MED      | -        | -          | Custom EVENT     |                           |
+|                       | A32NX.AUTOBRAKE_BUTTON_MAX      | -        | -          | Custom EVENT     |                           |
+|                       |                                 |          |            |                  |                           |
+| BRK FAN               | A32NX_BRAKE_FAN_BTN_PRESSED     | 0&#124;1 | R/W        | Custom LVAR      |                           |
+|                       |                                 |          |            |                  |                           |
+| A/SKID & N/W STRG     | ANTISKID_BRAKES_TOGGLE          | -        | -          | SIMCONNECT EVENT |                           |
+|                       | ANTISKID BRAKES ACTIVE          | 0&#124;1 | R/W        | SIMCONNECT VAR   |                           |
 
 ### ISIS
 

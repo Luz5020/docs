@@ -15,25 +15,9 @@ Please follow the information on this page to install FlyByWire Simulations prod
 
 Download the new FlyByWire installer where you can select either the Stable, or Development build. Our installer downloads and installs the add-on directly into your community folder.
 
-The following commands can be used:
+[Download Installer](https://flybywirecdn.com/installer/release/FlyByWire-Installer-x64.exe){ .md-button target=new}
 
-++ctrl+f5++ - Refreshes Installer
-
-++ctrl+f12++ - Opens the debug tool
-
-#### Installer Debug Logs
-
-You can send us logs to our [Discord](https://discord.gg/flybywire){target=new} for support if you encounter issues with the installer. Please follow the steps below:
-
-  * Open the debug tool ++ctrl+f12++.
-
-  * Find and select ++"Console"++ in the top menu.
-
-  * ++"Right Click"++ anywhere in the log displayed.
-
-  * Click ++"Save as"++ and send the log to us.
-
-[Download Installer](https://api.flybywiresim.com/installer){ .md-button target=new}
+You can find more information about the installer in our [Installer documentation](../../tools/installer/index.md).
 
 ### Manual Installation
 
@@ -57,8 +41,10 @@ You can send us logs to our [Discord](https://discord.gg/flybywire){target=new} 
 
         **Current Stable Version -** <img src="https://img.shields.io/github/v/release/flybywiresim/aircraft.svg?color=2F4E5B&style=flat" />
 
-        Stable is our variant that has the least bugs and best performance. This version will not always be up-to-date, 
-        but we ensure its compatibility with each major patch from MSFS. 
+        The stable edition is for those who need a stable home cockpit API, or controlled upgrades every few months.
+
+        This edition will always be behind the development edition in both features and fixes,
+        but it will receive compatibility patches if required for MSFS updates.
 
         [Download Stable](https://github.com/flybywiresim/aircraft/releases/download/assets/stable/A32NX-stable.zip){.md-button target=new}
 
@@ -66,9 +52,11 @@ You can send us logs to our [Discord](https://discord.gg/flybywire){target=new} 
 
     === "Development Version"
 
-        Development will have the latest features that will end up in the next stable. Bugs are to be expected. 
+        The development edition has all of the latest features and bug fixes that will end up in the next stable edition release.
 
-        It updates whenever something is added to the 'master' branch on GitHub. 
+        Although every change is QA-tested, bugs sometimes slip in; please reach out to us if you find any.
+
+        Updates occur whenever something is added to the `master` branch on Github.
 
         [Download Development](https://github.com/flybywiresim/aircraft/releases/download/assets/master/A32NX-master.7z){.md-button target=new}
  
@@ -80,8 +68,10 @@ You can send us logs to our [Discord](https://discord.gg/flybywire){target=new} 
 
         **Current Stable Version -** <img src="https://img.shields.io/github/v/release/flybywiresim/aircraft.svg?color=2F4E5B&style=flat" />
 
-        Stable is our variant that has the least bugs and best performance. This version will not always be up-to-date, 
-        but we ensure its compatibility with each major patch from MSFS. 
+        The stable edition is for those who need a stable home cockpit API, or controlled upgrades every few months.
+
+        This edition will always be behind the development edition in both features and fixes,
+        but it will receive compatibility patches if required for MSFS updates.
 
         [Download Stable](https://github.com/flybywiresim/aircraft/releases){.md-button target=new}
 
@@ -89,9 +79,11 @@ You can send us logs to our [Discord](https://discord.gg/flybywire){target=new} 
 
     === "Development Version"
 
-        Development will have the latest features that will end up in the next stable. Bugs are to be expected. 
+        The development edition has all of the latest features and bug fixes that will end up in the next stable edition release.
 
-        It updates whenever something is added to the 'master' branch on GitHub. 
+        Although every change is QA-tested, bugs sometimes slip in; please reach out to us if you find any.
+
+        Updates occur whenever something is added to the `master` branch on Github.
 
         [Download Development](https://github.com/flybywiresim/aircraft/releases/tag/assets%2Fmaster){.md-button target=new}
   

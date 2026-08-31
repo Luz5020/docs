@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/stylesheets/bg.css">
+<link rel="stylesheet" href="../../../stylesheets/bg.css">
 
 # Preparing the Flight Management System
 
@@ -50,10 +50,10 @@ This guide will cover the following topics in helping you set up the FMS:
 * [Understanding the FMS](#understanding-the-fms)
     * [Using Keyboard and Mouse](#using-keyboard-and-mouse)
 * [FMS Initialization](#fms-initialization)
-    * [Data & Status](#data-status)
-    * [Init & Flight Plan Initialization](#init-flight-plan-initialization)
+    * [Data & Status](#data--status)
+    * [Init & Flight Plan Initialization](#init--flight-plan-initialization)
     * [Navaids](#navaids)
-    * [Fuel & Payload](#fuel-payload)
+    * [Fuel & Payload](#fuel--payload)
     * [Performance](#performance)
 * [A380X simBrief Integration](#a380x-simbrief-integration)
 
@@ -542,10 +542,11 @@ When the FMS first starts, it will show a screen showing the current status of t
 
     ^^THS Value^^
 
-    You can find the Trimmable Horizontal Stabilizer Nose Forward (THS FOR) value on the PFD in the magenta box. Make 
-    sure all loading (passengers, luggage and fuel) has finished to get an accurate reading.
+    You can find the Trimmable Horizontal Stabilizer Nose Forward (THS FOR) value on the flyPad payload page.
+    Click on the blue arrow highlighted in the photo and read the "GW CG" value on the right under the "Current"
+    column. Make sure all loading (passengers, luggage and fuel) has finished to get an accurate reading.
 
-    ![PFD THS FOR VALUE](../assets/beginner-guide/03_preparing-fms/pfd-ths.png){loading=lazy}
+    ![PFD THS FOR VALUE](../../../aircraft/a380x/assets/feature-guides/fuel-weight/efb-gw-gwcg.png){loading=lazy}
 
     #### Take Off Performance
 
@@ -577,4 +578,4 @@ feature guide.
 
 ---
 
-After setting up the FMS, continue with [Engine Start and Taxi](../04_engine-start-taxi)
+After setting up the FMS, continue with [Engine Start and Taxi](04_engine-start-taxi.md)

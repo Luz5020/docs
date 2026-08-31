@@ -110,20 +110,34 @@ Settings for simulation aspects of the A32NX aircraft.
 - Default Baro:
     - User can set which baro setting is wanted as a default: inHg, hPA or Auto (depends on the airport where the aircraft spawned).
      
-- Sync MSFS Flight Plan:
-    - User can set if and how the flight plan synchronization between the simulator and the aircraft should work.
-    - The options are:
-        - None: 
-            - The simulator's flight plan will not be loaded and changes to the aircraft's flight plan will not be saved back to the sim's flight plan. 
-        - Load Only: 
-            - The simulator's flight plan set in the World Map will be loaded once when starting the flight. Any subsequent changes to the flight plan in the aircraft will not be synchronized back to the simulator.
-        - Save: 
-            - The simulator's flight plan set in the World Map will be loaded once when starting the flight. Any subsequent changes to the flight plan in the aircraft will be synchronized back to the simulator if possible. See the warning below for more information.
-   
+!!! info "Sync MSFS Flight Plan / Automatically Load MSFS Route"
+    
+    See [Flight Planning with MSFS](../flight-planning-with-msfs.md) for more information on how to use the flight planning features of Microsoft Flight Simulator in combination with our aircraft.
+    
+    === "MSFS 2020"
+        User can set if and how the flight plan synchronization between the simulator and the aircraft should work.
+        
+        - The options are:
+            - None: 
+                - The simulator's flight plan will not be loaded and changes to the aircraft's flight plan will not be saved back to the sim's flight plan. 
+            - Load Only: 
+                - The simulator's flight plan set in the World Map will be loaded once when starting the flight. Any subsequent changes to the flight plan in the aircraft will not be synchronized back to the simulator.
+            - Save: 
+                - The simulator's flight plan set in the World Map will be loaded once when starting the flight. Any subsequent changes to the flight plan in the aircraft will be synchronized back to the simulator if possible. See the warning below for more information.
+      
         !!! note "There is No synchronization from the sim's flight plan to the aircraft after initial load."
-
+    
         !!! warning "Synchronization Issues Expected"
             The aircraft's custom Flight Management System provides better accuracy and features over the default flight plan manager in Microsoft Flight Simulator, which results in issues syncing the flight plan from the MCDU back into the simulator. Do not expect it to work properly in all cases.
+
+    === "MSFS 2024"
+        User can choose whether automatic loading of the MSFS EFB route into the FMS is enabled or disabled.
+        
+        - The options are:
+            - Disabled:
+                - The simulator EFB route will not be automatically loaded into the aircraft's FMS when starting a flight.
+            - Enabled:
+                - The simulator EFB route will be automatically loaded into the aircraft's FMS when starting a flight.
 
 - Enable SimBridge Connection
     - Auto:
@@ -160,6 +174,11 @@ Settings for simulation aspects of the A32NX aircraft.
 
 ## Realism
 Settings for realism aspects of the A32NX aircraft.
+
+!!! warning "Outdated Image"
+    Please note that the setting "Sync EFIS controls between Captain and FO (Unrealistic)" now reads:
+
+    Sync EFIS and **Audio Controls** Between Captain and FO
 
 <div style="position: relative;">
     <img src="/aircraft/common/assets/flypados3/flypad-settings-realism.png" style="width: 100%; height: auto;" loading="lazy">
@@ -201,10 +220,9 @@ Settings for realism aspects of the A32NX aircraft.
     - The timeout feature will automatically deactivate the focus of the MCDU screen after the given amount of seconds.
     - Valid range is 5 - 120 seconds.
     - Setting is only available if MCDU Keyboard Input is enabled.
-- Sync EFIS controls between Captain and FO (unrealistic)
+- Sync EFIS and Audio Controls between Captain and FO (unrealistic)
     - When enabled, the EFIS controls will be synchronized between the Captain and FO.
     - This includes the Flight Director (FD), Landing System (LS) and Baro (STD, QNH and inHg/hPa) controls.
-    - Note: Baro is currently not separated between the Captain and FO and is always synchronized independent of this setting. 
 - Show Pilot Avatar
     - When enabled, the pilot avatar will be visible in the cockpit. 
     - The avatar style can be chosen in the MSFS settings `General Options -> Misc`.
@@ -244,7 +262,7 @@ Settings for integrations with various 3rd party applications
 - Navigraph Account Link
     - Setup wizard to connect your Navigraph Account with the flypad.
 - Override SimBrief User ID
-    - Allows users to input a custom SimBrief User ID. For more information see [A32NX simBrief Integration](../simbrief.md/#setup-a32nx-simbrief-integration).
+    - Allows users to input a custom SimBrief User ID. For more information see [A32NX simBrief Integration](../../a32nx/feature-guides/simbrief.md#setup-a32nx-simbrief-integration).
 - Automatically Import SimBrief Data
     - Imports latest SimBrief flight automatically when starting the flyPad.
 

@@ -9,10 +9,20 @@ description: Overview of the FlyByWire Documentation Guide
 
 ## Background
 
+!!! warning "Required Tools Update"
+    The dependency `click>8.2.2` creates an issue when utilizing `mkdocs serve --dirty` where the development server does not auto-reload the browser after detecting file changes.
+
+    As a workaround to dev builds we have created a `requirements-dev.txt` for use within your virtual environments which pins the version to `8.2.1` until a new release from `click` is provided to solve the issue.
+
+    Please see the section [Required Tools](#required-tools) for more information.
+
 !!! info "Guides"
     If you would like to setup the documentation project locally please continue with this guide.
 
     If you would like to understand our guidelines on writing and different available features please see the [Writing Documentation](writing-documentation.md) Page instead.
+
+!!! info "Docker Option"
+    If you prefer not to install or manage a local Python environment, this repository also includes a Docker-based workflow for local preview and build validation. See [Docker Workflow](#docker-workflow).
 
 The FlyByWire Documentation Project aims to provide all necessary information and documentation to successfully install and use the FlyByWire A32NX aircraft in Microsoft Flight Simulator.
 
@@ -54,7 +64,10 @@ To participate in the FlyByWire Documentation Project, you need to have the foll
     ```
 
     Once created, you need to activate it. Use the following command on Windows:
-    ```title="Activating virtualenv on Windows"
+    ```title="Activating virtualenv in Powershell including Console in Visual Studio Code"
+    .\venv\Scripts\Activate.ps1
+    ```
+    ```title="Activating virtualenv in CMD"
     .\venv\Scripts\activate.bat
     ```
     Or the following command on Linux and macOS:
@@ -62,7 +75,12 @@ To participate in the FlyByWire Documentation Project, you need to have the foll
     source venv/bin/activate
     ```
 - Install dependencies with this single line command:
-    ```title="Run In Terminal"
+    !!! tip "Local Development"
+          ```title="Run In Terminal"
+          pip install -r requirements-dev.txt
+          ```
+
+    ```title="Production Builds - Run In Terminal"
     pip install -r requirements.txt
     ```
 !!! info "Using `virtualenv`"
@@ -104,12 +122,12 @@ feature.
 - Fork the [:fontawesome-brands-github:{: .github } -  **Documentation Project GitHub**](https://github.com/flybywiresim/docs){target=new} ([How to fork a repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo){target=new}).
 - Create a local clone ([How to clone your forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository){target=new}).
 - Checkout the "primary" branch - this is the main branch of the current FlyByWire Documentation Project.
-- In a command line terminal, go to the cloned repository folder and start `mkdocs.exe serve` to start the local preview server.
+- In a command line terminal, go to the cloned repository folder and start `mkdocs serve` to start the local preview server.
 
     This should look like this:
 
     ```
-    > mkdocs.exe serve
+    > mkdocs serve
     INFO     -  Building documentation...
     INFO     -  Cleaning site directory
     INFO     -  Documentation built in 4.03 seconds
@@ -145,7 +163,7 @@ feature.
     You can opt to use a faster instance of the developer server by invoking the flag `--dirty`. This just checks for any markdown that has changed since the HTML was rendered and will reconstruct any relevant pages only, rather than rebuilding the entire website.
 
     ```
-    mkdocs.exe serve --dirty
+    mkdocs serve --dirty
     ```
 
     !!! danger ""
@@ -160,6 +178,29 @@ feature.
 
     - The site will be built locally under `/site` on in your local repo for user testing. Open`index.html` in the root of `/site` to preview.
     - Note: `--no-directory-urls` allows usage of reference links when browsing the locally built site. Prevents having to find each index.html related to every `filename.md` to preview the relevant page.
+
+#### Docker Workflow
+
+If you do not want to create a local Python `virtualenv`, you can run the documentation site in Docker instead.
+
+Start the preview server from the repository root:
+
+```bash
+docker compose up --build
+```
+
+Then open [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
+The repository is bind-mounted into the container, so saving changes locally will trigger MkDocs reloads in the running container just like a native setup.
+
+To run a one-off local build validation in Docker:
+
+```bash
+docker compose run --rm docs mkdocs build --clean --no-directory-urls --config-file docker.mkdocs.yml
+```
+
+!!! info "Git Worktrees and Docker"
+    This checkout can live inside a Git worktree too. In that setup, the git metadata paths exposed through `.git` are valid on the host but not inside the container. The Docker workflow therefore uses `docker.mkdocs.yml`, which disables the git revision date plugin for containerized local runs. If you need to modify the mkdocs.yml, make sure to update the docker one too!
 
 #### Make Changes or Additions to the Documentation
 
@@ -202,8 +243,8 @@ You can still follow the instructions to [preview your local clone](#preview-you
 
 If you would like to fully test a complete build of the production website, you need to run the following:
 
-- `mkdocs.exe serve --config-file production.yml` 
-- `mkdocs.exe build --clean --no-directory-urls --config-file production.yml`
+- `mkdocs serve --config-file production.yml` 
+- `mkdocs build --clean --no-directory-urls --config-file production.yml`
 
 !!! info "Additional Plugins in `production.yml`"
     The following plugins are included:
@@ -215,4 +256,3 @@ If you would like to fully test a complete build of the production website, you 
 Please use GitHub's Issue tracker for any documentation request or issues you might have encountered.
 
  [:fontawesome-brands-github:{: .github } -  **Documentation Project Issues**](https://github.com/flybywiresim/docs/issues){target=new}
-

@@ -4,3 +4,8 @@
 /site/
 /.cache/
 /venv/
+/scripts/
+*.md.bak
+/dev/*
+builds/
+*.DS_Store

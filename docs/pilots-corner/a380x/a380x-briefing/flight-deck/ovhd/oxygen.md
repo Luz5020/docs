@@ -13,7 +13,7 @@ description: The A380 Flight Deck Oxygen Panel description.
 
 ![Oxygen Panel](../../../assets/a380x-briefing/flight-deck/ovhd/oxygen-panel.png "Oxygen Panel"){loading=lazy}
 
-[//]: # (TODO API Doc Link)
+!!! note "API Documentation: [OXYGEN Panel API](../../../../../aircraft/a380x/a380x-api/a380x-flight-deck-api.md#oxygen-panel)"
 
 ## Usage
 
@@ -38,7 +38,7 @@ The MASK MAN ON pb is a guarded pushbutton.
 
 - SYS ON:
     - Oxygen flows toward the passenger masks.
-    - The light remains on, until the RESET pb on the [OXYGEN maintenance panel](./maintenance.md#reset-pb) is pressed.
+    - The light remains on, until the RESET pb on the [OXYGEN maintenance panel](maintenance.md#reset-pb) is pressed.
 
 ---
 

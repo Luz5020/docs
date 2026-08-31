@@ -275,10 +275,10 @@ Verify these items:
 `LANDING CHECKLIST ............................................... COMPLETE`<br/>
 ??? note "Landing Checklist"
     The Airbus A380 has a built-in checklist system that can be accessed via the
-    [Engine Warning Display (EWD)](../../a380x-briefing/flight-deck/main-panel/ewd).
+    [Engine Warning Display (EWD)](../a380x-briefing/flight-deck/main-panel/ewd.md).
 
     To activate it you need to press the `C/L` button on the 
-    [ECAM Control Panel (ECP)](../../a380x-briefing/flight-deck/pedestal/ecam-cp).
+    [ECAM Control Panel (ECP)](../a380x-briefing/flight-deck/pedestal/ecam-cp.md).
 
     You can navigate through the checklist by using the `UP` and `DOWN` buttons on the ECP. You can check/uncheck items
     by pressing the buttons with the check mark on the ECP.
@@ -330,8 +330,9 @@ Verify these items:
 
 `AUTOPILOT ............................................................ OFF`<br/>
 ??? note "Autopilot OFF"
-    Next, we turn the **Autopilot** `OFF` at about 500ft above the ground by pressing the green lit `AP1+2` buttons on 
-    the `FCU`.
+    Next, we turn the **Autopilot** `OFF` at about 500 ft (ca. 152 m) above the ground by pressing the red pushbutton on one of the sidesticks.
+    It is required to press the button a second time at least 1.8 s after the first press. If that is not done, further warnings will be triggered.
+    For that to work correctly, it is important that the correct binding is used. Bind the button of your choice to `AP OFF`.
 
     We leave the **Autothrust** on, so we don't have to worry about thrust and speed at all (Leaving **Autothrust** on 
     for landing is common for the Airbus).
@@ -370,7 +371,7 @@ Verify these items:
     If you are not stable for landing at 100ft above the ground, you should do a go-around. This is a common procedure 
     and not a failure.
 
-    Thie beginner guide does not cover a go-around - see the advanced guide for this.
+    This beginner guide does not cover a go-around - see the advanced guide for this.
     <p style="color:yellow; font-size:18px;">TODO: link to advanced guide</p>
 
 `FLARE (~40ft agl) ............................................... INITIATE`<br/>
@@ -465,4 +466,4 @@ tasks.
 
 This concludes *Vacate Runway*
 
-Continue with [After Landing Steps](../08_after-landing)
+Continue with [After Landing Steps](08_after-landing.md)
